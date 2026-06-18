@@ -1,6 +1,6 @@
 # 🧠 Engineering Philosophy
 
-> **Core Tenet**: These are the values that drive how systems are built. They are not theoretical; they are hard-won lessons from production scale (e.g. 4K+ concurrents on Milan, distributed architectures in Project Omega).
+> **Core Tenet**: These are the values that drive how systems are built. They are not theoretical; they are hard-won lessons from production scale (e.g. 5,400+ passes sold on Milan, distributed architectures in Project Omega).
 
 ---
 
@@ -12,7 +12,7 @@ Never guess where the bottleneck is. Optimization without measurement is just ch
 > **If you can't measure the performance impact of a PR, you shouldn't merge it.**
 
 **The Reality Check (Milan Case Study):**
-Identifying the ~60-70MB Node.js footprint and successfully managing 4,000+ concurrent users during festival ticket drops was *only* possible because we had active telemetry. We didn't guess the bottleneck; we measured it and patched it.
+Identifying the ~60-70MB Node.js footprint and successfully handling the load of 5,400+ passes sold during festival ticket drops was *only* possible because we had active telemetry. We didn't guess the bottleneck; we measured it and patched it.
 
 ---
 
