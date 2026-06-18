@@ -12,7 +12,7 @@ Do not write a tech stack list masked as an abstract.
 > **Bad:** *"This is a Next.js and Prisma application that uses PostgreSQL to store user data."*
 
 > [!IMPORTANT]  
-> **Good:** *"Milan is an event-driven platform handling 5400+ passes sold, built to provide real-time coordination with dual authentication. (Next.js / PostgreSQL)."*
+> **Good:** *"Milan is an event-driven platform handling 5400+ passes sold, built to provide real-time coordination with dual authentication. (Next.js / SupaBase)."*
 
 Focus on the *domain problem* being solved, then list the tech.
 
