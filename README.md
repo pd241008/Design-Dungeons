@@ -1,19 +1,24 @@
-# Engineering Playbook
+# 📓 Engineering Playbook
 
 This repository is a living document of my engineering decisions, patterns, and conventions. It is written from real project experience, not theory. It serves as a continuous record of how I build systems, designed for senior engineers to understand the "why" behind the "what," and for junior engineers as a practical reference guide.
 
-## How to Read This
+---
 
+## 🧭 How to Read This
+
+> [!IMPORTANT]  
 > **Every pattern here comes from a real decision made under real constraints. If it links to a repo, that's where I actually used it.**
 
 This is not a generic list of "best practices." If a pattern or architecture choice is documented here, it means I have built it, supported it, and dealt with its consequences in production.
 
-## Navigation
+---
+
+## 🗺️ Navigation
 
 | Section | Description |
 |---------|-------------|
-| **[00. Foundations](./00-foundations/philosophy.md)** | Core engineering values and philosophy. |
-| **[01. Documentation](./01-documentation)** | README patterns and Architecture Decision Records (ADRs). |
+| **[00. Foundations](./00-foundations/)** | Core philosophy and engineering standards. |
+| **[01. Documentation](./01-documentation/)** | README patterns and Architecture Decision Records (ADRs). |
 | *02. Project Structure* | (Coming soon) Canonical folder layouts per tech stack. |
 | *03. Git & Versioning* | (Coming soon) Commit formats, PR templates, and branch strategies. |
 | *04. API Design* | (Coming soon) REST conventions, error schemas, and async handling. |
