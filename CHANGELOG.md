@@ -12,3 +12,4 @@
 - 📝 **Added** `ADR-001: Dropping Redis from OmniStat-Core` (`01-documentation/adrs/001-omnistat-no-redis.md`).
 - 🧠 **Added** `00-foundations/philosophy.md` detailing engineering values.
 - 🎉 **Initialized** the playbook.
+2026-06-18  Added `ADR-002: CQRS & Append-Only Event Store for DevTrace`.
