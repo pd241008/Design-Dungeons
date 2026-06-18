@@ -9,7 +9,7 @@
 
 DevTrace intercepts and monitors system-level events (syscalls, network I/O, file access) in high-throughput environments using a Rust agent.
 
-Initially, the architecture attempted to directly map incoming telemetry streams into normalized relational tables to make querying easy. However, telemetry generation drastically outpaces analysis. A single node can produce 10,000+ events per second. Trying to perform relational writes (with index updates, foreign key checks, and locks) at ingestion time caused severe backpressure, leading to dropped events and agent memory bloat.
+Initially, the architecture attempted to directly map incoming telemetry streams into normalized relational tables to make querying easy. However, telemetry generation drastically outpaces analysis. A single node can produce 10,000+ events per second (a projected threshold based on benchmark testing). Trying to perform relational writes (with index updates, foreign key checks, and locks) at ingestion time caused severe backpressure, leading to dropped events and agent memory bloat.
 
 ## 🛤️ Options Considered
 
