@@ -1,3 +1,4 @@
+
 # ⏳ Changelog
 
 > All notable additions to this playbook will be documented in this file.
@@ -9,6 +10,8 @@
 - 💅 **Styled** all core markdown files to adhere to the new premium formatting standard.
 - 📖 **Added** `01-documentation/readme-patterns.md` covering project abstract and variant structures.
 - ⚖️ **Added** `01-documentation/adr-template.md` as the standard decision format.
+- 📝 **Added** `ADR-003: Dual Auth for Milan` (`01-documentation/adrs/003-milan-dual-auth.md`).
+- 📝 **Added** `ADR-002: CQRS & Append-Only Event Store for DevTrace`.
 - 📝 **Added** `ADR-001: Dropping Redis from OmniStat-Core` (`01-documentation/adrs/001-omnistat-no-redis.md`).
 - 🧠 **Added** `00-foundations/philosophy.md` detailing engineering values.
 - 🎉 **Initialized** the playbook.
