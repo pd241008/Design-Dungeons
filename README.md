@@ -1,4 +1,6 @@
-# 📓 Engineering Playbook
+# 🏰 Design Dungeons
+
+### 📓 The Engineering Playbook
 
 This repository is a living document of my engineering decisions, patterns, and conventions. It is written from real project experience, not theory. It serves as a continuous record of how I build systems, designed for senior engineers to understand the "why" behind the "what," and for junior engineers as a practical reference guide.
 
