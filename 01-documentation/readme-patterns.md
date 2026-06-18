@@ -12,7 +12,7 @@ Do not write a tech stack list masked as an abstract.
 > **Bad:** *"This is a Next.js and Prisma application that uses PostgreSQL to store user data."*
 
 > [!IMPORTANT]  
-> **Good:** *"Milan is an event-driven platform handling 5400+ passes sold, built to provide real-time coordination with dual authentication. (Next.js / SupaBase)."*
+> **Good:** *"Milan is an event-driven platform handling 4,000 concurrent users, built to provide real-time coordination with dual authentication. (Next.js / PostgreSQL)."*
 
 Focus on the *domain problem* being solved, then list the tech.
 
@@ -39,13 +39,13 @@ Badges signal the health and state of a project at a glance:
 ## 🏗️ Variant Templates
 
 > [!TIP]
-> **Four variants below, one per project archetype.** Copy the relevant one into your repo, fill in the bracketed fields, and delete unused sections.
+> **Four variants below, one per project archetype.** Copy the relevant code block into your repo, fill in the bracketed fields, and delete unused sections.
 
 ### 1️⃣ Variant A — Systems / Backend (Rust · Go · C++)
 *Use for: DevTrace, NEURO, Aegis, OmniStat-Core, TASCP, SystemsLab projects*
 *Focus heavily on architecture diagrams, environment variables, and dependency requirements.*
 
-```markdown
+````markdown
 <div align="center">
 
 # [Project Name]
@@ -79,9 +79,43 @@ Ingestion Layer (Tokio MPSC)
         └── Query Engine (CQRS read path)
             └── Exporter (JSON / OpenTelemetry)
 ```
+
 ---
-... (Standard README sections like Quickstart, Configuration, Performance, Status) ...
+
+## Quickstart
+
+```bash
+# Install (choose one)
+cargo install [crate-name]
+go install github.com/pd241008/[repo]@latest
+
+# Run
+[binary-name] --config config.toml
 ```
+
+---
+
+## Configuration
+
+| Flag / Env Var | Default | Description |
+|---|---|---|
+| `--port` | `8080` | Listener port |
+| `--buffer-size` | `10000` | Ingestion channel depth |
+| `[ADD YOUR OWN]` | | |
+
+---
+
+## Status
+
+| Component | State |
+|---|---|
+| Core engine | ✅ Stable |
+| [Feature X] | 🔨 In progress |
+
+---
+
+*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+````
 
 ---
 
@@ -89,7 +123,7 @@ Ingestion Layer (Tokio MPSC)
 *Use for: AdvGuard, IntelliDoc, AQI Prediction*
 *Focus on reproducibility. Include exactly how to get the dataset, the exact conda environment setup, and the evaluation script.*
 
-```markdown
+````markdown
 <div align="center">
 
 # [Project Name]
@@ -118,8 +152,38 @@ Ingestion Layer (Tokio MPSC)
 | Clean accuracy | [X%] | [X%] | No degradation |
 
 ---
-... (Standard research sections like Algorithm, Datasets, Quickstart, Citation) ...
+
+## Quickstart
+
+```bash
+pip install -r requirements.txt
+
+# Train
+python train.py --dataset nsl-kdd --epochs 50
+
+# Evaluate
+python evaluate.py --attack pgd --epsilon 0.15
 ```
+
+---
+
+## Citation
+
+If you use this work:
+
+```bibtex
+@inproceedings{desai2026,
+  title     = {[Full paper title]},
+  author    = {Desai, Prathmesh P. and [Co-authors]},
+  booktitle = {IEEE International Conference on Cyber Security and Resilience (CSR)},
+  year      = {2026}
+}
+```
+
+---
+
+*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+````
 
 ---
 
@@ -127,7 +191,7 @@ Ingestion Layer (Tokio MPSC)
 *Use for: ExpressKit, NeoUI, DevTrace (multi-platform)*
 *Focus on usage examples. Provide a `--help` snippet and 3-4 concrete examples of what the tool actually does.*
 
-```markdown
+````markdown
 <div align="center">
 
 # [package-name]
@@ -138,6 +202,15 @@ Ingestion Layer (Tokio MPSC)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
 </div>
+
+---
+
+## Install
+
+```bash
+npx @pd241008/[package] init
+# or cargo install [crate]
+```
 
 ---
 
@@ -160,9 +233,17 @@ expresskit init my-api --template rest
   --option-b    [what it does]
   --flag        [what it does]
 ```
+
 ---
-... (Standard package sections like Install, What It Does, Generated Structure) ...
-```
+
+## What It Does
+
+[2 paragraphs max. What workflow problem does this solve? What does a generated/output project look like?]
+
+---
+
+*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+````
 
 ---
 
@@ -170,7 +251,7 @@ expresskit init my-api --template rest
 *Use for: Milan, Taskiee, Gram Sevak, NeuroTrack*
 *Focus on the local dev loop. Where is the frontend? Where is the backend? Give them the one-liner (`npm run dev:all`) that starts everything.*
 
-```markdown
+````markdown
 <div align="center">
 
 # [Project Name]
@@ -203,8 +284,28 @@ expresskit init my-api --template rest
 | Infra | AWS EC2 + PM2 | [reason] |
 
 ---
-... (Standard app sections like Local Setup, Env Variables, Architecture Notes) ...
+
+## Local Setup
+
+```bash
+git clone https://github.com/pd241008/[repo]
+cd [repo]
+cp .env.example .env   # fill in secrets
+
+npm install
+npm run dev            # or docker-compose up
 ```
+
+---
+
+## Architecture Notes
+
+[1–3 bullet points on non-obvious decisions: why async queue, why dual auth, why PM2 over container orchestration at this scale, etc.]
+
+---
+
+*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+````
 
 ---
 
