@@ -24,7 +24,7 @@ project-root/
 
 ## 🏛️ Layer Rules & Request Flow
 
-To maintain loose coupling and prioritize clarity over cleverness, the application layers must strictly adhere to these responsibilities:
+To maintain loose coupling and prioritize clarity over cleverness, the application layers should follow this **default organizational pattern**:
 
 > [!IMPORTANT]
 >
@@ -73,7 +73,7 @@ All APIs must return this unified JSON response structure. This guarantees the f
 
 ### Code Rules
 
-- **No `any`** in TypeScript. Ever.
+- **No `any` in TypeScript** except at explicitly documented external boundaries.
 - **Strict typing** enforced in Python via Pydantic/MyPy.
 - Write **small, pure functions** that are easily testable.
 - **No silent failures**. Handle the error or explicitly surface it.

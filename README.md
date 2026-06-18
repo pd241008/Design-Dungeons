@@ -21,13 +21,13 @@ This is not a generic list of "best practices." If a pattern or architecture cho
 | -------------------------------------------- | ------------------------------------------------------------------ |
 | **[00. Foundations](./00-foundations/)**     | Core philosophy and engineering standards.                         |
 | **[01. Documentation](./01-documentation/)** | README patterns and Architecture Decision Records (ADRs).          |
-| _02. Project Structure_                      | (Coming soon) Canonical folder layouts per tech stack.             |
-| _03. Git & Versioning_                       | (Coming soon) Commit formats, PR templates, and branch strategies. |
-| _04. API Design_                             | (Coming soon) REST conventions, error schemas, and async handling. |
-| _05. Database_                               | (Coming soon) Migration discipline, indexing, and schema changes.  |
-| _06. Async & Queues_                         | (Coming soon) Task idempotency, retries, and queue architectures.  |
-| _07. Observability_                          | (Coming soon) Metrics baselines, logging shapes, and alerting.     |
-| _08. Security_                               | (Coming soon) Auth patterns, JWTs, and input validation.           |
+| **[02. Postmortems](./02-postmortems/)**     | Failure stories, mistakes, and what we learned.                    |
+| **[03. Project Structure](./03-project-structure/canonical-layouts.md)** | Canonical folder layouts for full-stack, systems, and ML repos. |
+| _04. Git & Versioning_                       | (Coming soon) Commit formats, PR templates, and branch strategies. |
+| _05. API Design_                             | (Coming soon) REST conventions, error schemas, and async handling. |
+| _06. Database_                               | (Coming soon) Migration discipline, indexing, and schema changes.  |
+| _07. Async & Queues_                         | (Coming soon) Task idempotency, retries, and queue architectures.  |
+| _08. Observability_                          | (Coming soon) Metrics baselines, logging shapes, and alerting.     |
 | _09. Testing_                                | (Coming soon) What to test, async job testing, and ML pipelines.   |
 | _10. Performance_                            | (Coming soon) Profiling, caching, and concurrency.                 |
 | _11. Deployment_                             | (Coming soon) PM2, containers, and GitHub actions.                 |

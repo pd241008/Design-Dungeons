@@ -30,7 +30,7 @@ At sub-1,000 events/day, the operational overhead of running, monitoring, and ma
 > [!NOTE]
 > **Premature abstraction is a tax; we chose to optimize for simplicity and speed of iteration instead.**
 
-This decision reverses at roughly ~50k events/day when database load becomes a real concern.
+This decision reverses at roughly ~50k events/day (a limit observed during local load tests) when database load becomes a real concern.
 
 ## ⚖️ Consequences
 
