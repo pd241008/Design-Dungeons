@@ -63,6 +63,10 @@ All APIs must return this unified JSON response structure. This guarantees the f
 }
 ```
 
+> [!WARNING]  
+> **HTTP Status Codes MUST align with the payload.**
+> Never return a `200 OK` when `"success": false`. Use standard HTTP semantics (e.g., `400`, `404`, `500`) to accurately reflect the state so clients and monitoring tools can correctly intercept failures.
+
 ---
 
 ## 🛡️ Code & Git Standards
