@@ -17,22 +17,23 @@ This is not a generic list of "best practices." If a pattern or architecture cho
 
 ## 🗺️ Navigation
 
-| Section | Description |
-|---------|-------------|
-| **[00. Foundations](./00-foundations/)** | Core philosophy and engineering standards. |
-| **[01. Documentation](./01-documentation/)** | README patterns and Architecture Decision Records (ADRs). |
-| *02. Project Structure* | (Coming soon) Canonical folder layouts per tech stack. |
-| *03. Git & Versioning* | (Coming soon) Commit formats, PR templates, and branch strategies. |
-| *04. API Design* | (Coming soon) REST conventions, error schemas, and async handling. |
-| *05. Database* | (Coming soon) Migration discipline, indexing, and schema changes. |
-| *06. Async & Queues* | (Coming soon) Task idempotency, retries, and queue architectures. |
-| *07. Observability* | (Coming soon) Metrics baselines, logging shapes, and alerting. |
-| *08. Security* | (Coming soon) Auth patterns, JWTs, and input validation. |
-| *09. Testing* | (Coming soon) What to test, async job testing, and ML pipelines. |
-| *10. Performance* | (Coming soon) Profiling, caching, and concurrency. |
-| *11. Deployment* | (Coming soon) PM2, containers, and GitHub actions. |
-| *12. ML & Research* | (Coming soon) Experiment tracking and reproducible repos. |
-| *13. Code Review* | (Coming soon) Checklists and what *not* to block on. |
+| Section                                      | Description                                                        |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| **[00. Foundations](./00-foundations/)**     | Core philosophy and engineering standards.                         |
+| **[01. Documentation](./01-documentation/)** | README patterns and Architecture Decision Records (ADRs).          |
+| _02. Project Structure_                      | (Coming soon) Canonical folder layouts per tech stack.             |
+| _03. Git & Versioning_                       | (Coming soon) Commit formats, PR templates, and branch strategies. |
+| _04. API Design_                             | (Coming soon) REST conventions, error schemas, and async handling. |
+| _05. Database_                               | (Coming soon) Migration discipline, indexing, and schema changes.  |
+| _06. Async & Queues_                         | (Coming soon) Task idempotency, retries, and queue architectures.  |
+| _07. Observability_                          | (Coming soon) Metrics baselines, logging shapes, and alerting.     |
+| _08. Security_                               | (Coming soon) Auth patterns, JWTs, and input validation.           |
+| _09. Testing_                                | (Coming soon) What to test, async job testing, and ML pipelines.   |
+| _10. Performance_                            | (Coming soon) Profiling, caching, and concurrency.                 |
+| _11. Deployment_                             | (Coming soon) PM2, containers, and GitHub actions.                 |
+| _12. ML & Research_                          | (Coming soon) Experiment tracking and reproducible repos.          |
+| _13. Code Review_                            | (Coming soon) Checklists and what _not_ to block on.               |
 
 ---
-*See [CHANGELOG.md](./CHANGELOG.md) for recent updates.*
+
+_See [CHANGELOG.md](./CHANGELOG.md) for recent updates._

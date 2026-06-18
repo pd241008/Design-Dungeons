@@ -1,20 +1,20 @@
 # 📖 README Patterns
 
-> **The `README.md` is the front door of your project.** It must answer *what this is, why it exists, and how to run it* within the first scroll.
+> **The `README.md` is the front door of your project.** It must answer _what this is, why it exists, and how to run it_ within the first scroll.
 
 ---
 
 ## 🎯 The Project Abstract
 
-Do not write a tech stack list masked as an abstract. 
+Do not write a tech stack list masked as an abstract.
 
 > [!WARNING]  
-> **Bad:** *"This is a Next.js and Prisma application that uses PostgreSQL to store user data."*
+> **Bad:** _"This is a Next.js and Prisma application that uses PostgreSQL to store user data."_
 
 > [!IMPORTANT]  
-> **Good:** *"Milan is an event-driven platform that sold 5,400+ passes, built to provide real-time coordination with dual authentication. (Next.js / PostgreSQL)."*
+> **Good:** _"Milan is an event-driven platform that sold 5,400+ passes, built to provide real-time coordination with dual authentication. (Next.js / PostgreSQL)."_
 
-Focus on the *domain problem* being solved, then list the tech.
+Focus on the _domain problem_ being solved, then list the tech.
 
 ---
 
@@ -31,6 +31,7 @@ Badges signal the health and state of a project at a glance:
 ## 🤝 CONTRIBUTING.md vs. Inline
 
 > [!NOTE]
+>
 > - If a project is open-source or has **>3 active maintainers**, write a dedicated `CONTRIBUTING.md`.
 > - If the project is **internal or solo**, put a brief "Local Setup" section directly in the README and don't bother with a separate file.
 
@@ -42,8 +43,9 @@ Badges signal the health and state of a project at a glance:
 > **Four variants below, one per project archetype.** Copy the relevant code block into your repo, fill in the bracketed fields, and delete unused sections.
 
 ### 1️⃣ Variant A — Systems / Backend (Rust · Go · C++)
-*Use for: DevTrace, NEURO, Aegis, OmniStat-Core, TASCP, SystemsLab projects*
-*Focus heavily on architecture diagrams, environment variables, and dependency requirements.*
+
+_Use for: DevTrace, NEURO, Aegis, OmniStat-Core, TASCP, SystemsLab projects_
+_Focus heavily on architecture diagrams, environment variables, and dependency requirements._
 
 ````markdown
 <div align="center">
@@ -97,31 +99,32 @@ go install github.com/pd241008/[repo]@latest
 
 ## Configuration
 
-| Flag / Env Var | Default | Description |
-|---|---|---|
-| `--port` | `8080` | Listener port |
-| `--buffer-size` | `10000` | Ingestion channel depth |
-| `[ADD YOUR OWN]` | | |
+| Flag / Env Var   | Default | Description             |
+| ---------------- | ------- | ----------------------- |
+| `--port`         | `8080`  | Listener port           |
+| `--buffer-size`  | `10000` | Ingestion channel depth |
+| `[ADD YOUR OWN]` |         |                         |
 
 ---
 
 ## Status
 
-| Component | State |
-|---|---|
-| Core engine | ✅ Stable |
+| Component   | State          |
+| ----------- | -------------- |
+| Core engine | ✅ Stable      |
 | [Feature X] | 🔨 In progress |
 
 ---
 
-*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+_[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)_
 ````
 
 ---
 
 ### 2️⃣ Variant B — Machine Learning / Research (Python)
-*Use for: AdvGuard, IntelliDoc, AQI Prediction*
-*Focus on reproducibility. Include exactly how to get the dataset, the exact conda environment setup, and the evaluation script.*
+
+_Use for: AdvGuard, IntelliDoc, AQI Prediction_
+_Focus on reproducibility. Include exactly how to get the dataset, the exact conda environment setup, and the evaluation script._
 
 ````markdown
 <div align="center">
@@ -145,11 +148,11 @@ go install github.com/pd241008/[repo]@latest
 
 ## Results
 
-| Attack / Metric | Baseline | This Work | Notes |
-|---|---|---|---|
-| PGD (ε=0.15) | [X%] | **[Y%]** | [Config] |
-| FGSM | [X%] | **[Y%]** | |
-| Clean accuracy | [X%] | [X%] | No degradation |
+| Attack / Metric | Baseline | This Work | Notes          |
+| --------------- | -------- | --------- | -------------- |
+| PGD (ε=0.15)    | [X%]     | **[Y%]**  | [Config]       |
+| FGSM            | [X%]     | **[Y%]**  |                |
+| Clean accuracy  | [X%]     | [X%]      | No degradation |
 
 ---
 
@@ -182,14 +185,15 @@ If you use this work:
 
 ---
 
-*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+_[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)_
 ````
 
 ---
 
 ### 3️⃣ Variant C — CLI Tools / Published Package
-*Use for: ExpressKit, NeoUI, DevTrace (multi-platform)*
-*Focus on usage examples. Provide a `--help` snippet and 3-4 concrete examples of what the tool actually does.*
+
+_Use for: ExpressKit, NeoUI, DevTrace (multi-platform)_
+_Focus on usage examples. Provide a `--help` snippet and 3-4 concrete examples of what the tool actually does._
 
 ````markdown
 <div align="center">
@@ -242,14 +246,15 @@ expresskit init my-api --template rest
 
 ---
 
-*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+_[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)_
 ````
 
 ---
 
 ### 4️⃣ Variant D — Full-Stack App / Platform
-*Use for: Milan, Taskiee, Gram Sevak, NeuroTrack*
-*Focus on the local dev loop. Where is the frontend? Where is the backend? Give them the one-liner (`npm run dev:all`) that starts everything.*
+
+_Use for: Milan, Taskiee, Gram Sevak, NeuroTrack_
+_Focus on the local dev loop. Where is the frontend? Where is the backend? Give them the one-liner (`npm run dev:all`) that starts everything._
 
 ````markdown
 <div align="center">
@@ -275,13 +280,13 @@ expresskit init my-api --template rest
 
 ## Stack
 
-| Layer | Technology | Why |
-|---|---|---|
+| Layer    | Technology            | Why      |
+| -------- | --------------------- | -------- |
 | Frontend | Next.js 14 + Tailwind | [reason] |
-| Backend | Node / Express | [reason] |
-| Auth | Google OAuth + OTP | [reason] |
-| DB | PostgreSQL + Prisma | [reason] |
-| Infra | AWS EC2 + PM2 | [reason] |
+| Backend  | Node / Express        | [reason] |
+| Auth     | Google OAuth + OTP    | [reason] |
+| DB       | PostgreSQL + Prisma   | [reason] |
+| Infra    | AWS EC2 + PM2         | [reason] |
 
 ---
 
@@ -304,7 +309,7 @@ npm run dev            # or docker-compose up
 
 ---
 
-*[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)*
+_[pd241008](https://github.com/pd241008) · [ct-os-dev-portfolio.vercel.app](https://ct-os-dev-portfolio.vercel.app)_
 ````
 
 ---
@@ -312,6 +317,7 @@ npm run dev            # or docker-compose up
 ## 💡 Common Rules Across All Variants
 
 > [!IMPORTANT]
+>
 > 1. **First sentence = what it does, not what it's built with.** Tech stack goes in a table, not the headline.
 > 2. **Lead with the non-obvious thing.** If you solved a hard problem, say so in the first 5 lines.
 > 3. **Quickstart before architecture.** Let someone run it first, understand it second.
