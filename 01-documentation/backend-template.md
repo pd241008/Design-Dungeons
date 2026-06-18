@@ -1,3 +1,10 @@
+# Variant A — Systems / Backend (Rust · Go · C++)
+
+_Use for: DevTrace, NEURO, Aegis, OmniStat-Core, TASCP, SystemsLab projects_  
+_Focus heavily on architecture diagrams, environment variables, and dependency requirements._
+
+---
+
 <div align="center">
 
 # [Project Name]

@@ -1,3 +1,10 @@
+# Variant D — Full-Stack App / Platform
+
+_Use for: Milan, Taskiee, Gram Sevak, NeuroTrack_  
+_Focus on the local dev loop. Where is the frontend? Where is the backend? Give them the one-liner (`npm run dev:all`) that starts everything._
+
+---
+
 <div align="center">
 
 # [Project Name]

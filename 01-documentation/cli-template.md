@@ -1,3 +1,10 @@
+# Variant C — CLI Tools / Published Package
+
+_Use for: ExpressKit, NeoUI, DevTrace (multi-platform)_  
+_Focus on usage examples. Provide a `--help` snippet and 3-4 concrete examples of what the tool actually does._
+
+---
+
 <div align="center">
 
 # [package-name]

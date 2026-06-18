@@ -42,41 +42,10 @@ Badges signal the health and state of a project at a glance:
 > [!TIP]
 > **Four variants below, one per project archetype.**
 
-### 1️⃣ Variant A — Systems / Backend (Rust · Go · C++)
-
-_Use for: DevTrace, NEURO, Aegis, OmniStat-Core, TASCP, SystemsLab projects_
-_Focus heavily on architecture diagrams, environment variables, and dependency requirements._
-
-**[View Backend Template](./backend-template.md)**
-
----
-
-### 2️⃣ Variant B — Machine Learning / Research (Python)
-
-_Use for: AdvGuard, IntelliDoc, AQI Prediction_
-_Focus on reproducibility. Include exactly how to get the dataset, the exact conda environment setup, and the evaluation script._
-
-**[View ML Template](./ml-template.md)**
-
----
-
-### 3️⃣ Variant C — CLI Tools / Published Package
-
-_Use for: ExpressKit, NeoUI, DevTrace (multi-platform)_
-_Focus on usage examples. Provide a `--help` snippet and 3-4 concrete examples of what the tool actually does._
-
-**[View CLI Template](./cli-template.md)**
-
----
-
-### 4️⃣ Variant D — Full-Stack App / Platform
-
-_Use for: Milan, Taskiee, Gram Sevak, NeuroTrack_
-_Focus on the local dev loop. Where is the frontend? Where is the backend? Give them the one-liner (`npm run dev:all`) that starts everything._
-
-**[View Fullstack Template](./fullstack-template.md)**
-
----
+- **[Backend Template](./backend-template.md)**
+- **[ML Template](./ml-template.md)**
+- **[CLI Template](./cli-template.md)**
+- **[Fullstack Template](./fullstack-template.md)**
 
 ## 💡 Common Rules Across All Variants
 

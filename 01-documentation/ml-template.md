@@ -1,3 +1,10 @@
+# Variant B — Machine Learning / Research (Python)
+
+_Use for: AdvGuard, IntelliDoc, AQI Prediction_  
+_Focus on reproducibility. Include exactly how to get the dataset, the exact conda environment setup, and the evaluation script._
+
+---
+
 <div align="center">
 
 # [Project Name]
