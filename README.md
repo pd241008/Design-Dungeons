@@ -24,8 +24,8 @@ This is not a generic list of "best practices." If a pattern or architecture cho
 | **[02. Postmortems](./02-postmortems/)**     | Failure stories, mistakes, and what we learned.                    |
 | **[03. Project Structure](./03-project-structure/canonical-layouts.md)** | Canonical folder layouts for full-stack, systems, and ML repos. |
 | **[04. Reference Code](./04-reference-code/)** | Actual code snippets proving the architecture in production.       |
-| _05. Git & Versioning_                       | (Coming soon) Commit formats, PR templates, and branch strategies. |
-| _06. API Design_                             | (Coming soon) REST conventions, error schemas, and async handling. |
+| **_05. Git & Versioning_** | Commit formats, PR templates, and branch strategies. |
+| _06. API Design_ | (Coming soon) REST conventions, error schemas, and async handling. |
 | _07. Database_                               | (Coming soon) Migration discipline, indexing, and schema changes.  |
 | _08. Async & Queues_                         | (Coming soon) Task idempotency, retries, and queue architectures.  |
 | _09. Observability_                          | (Coming soon) Metrics baselines, logging shapes, and alerting.     |
