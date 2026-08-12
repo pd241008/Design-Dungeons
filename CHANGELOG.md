@@ -15,4 +15,9 @@
 - 📝 **Added** `ADR-001: Dropping Redis from OmniStat-Core` (`01-documentation/adrs/001-omnistat-no-redis.md`).
 - 🧠 **Added** `00-foundations/philosophy.md` detailing engineering values.
 - 🎉 **Initialized** the playbook.
-  2026-06-18 Added `ADR-002: CQRS & Append-Only Event Store for DevTrace`.
+
+### August 12, 2026
+
+- ⚙️ **Added** `05-git-and-versioning/` covering Conventional Commits, branch naming, commit body/footers, linking commits to documentation, decision framework, anti-patterns, and collaboration guidelines (merge strategies, conflict resolution, rollback procedures).
+- 🌍 **Added** `06-environments/environment-standards.md` covering `.env.example` structure, environment tiers (development/staging/production), secret management and rotation policies, configuration validation, `.gitignore` discipline, and environment promotion rules.
+- 🕵️ **Added** `02-postmortems/002-sentinalmesh-simulator-bugs.md` documenting the 8-bug retrospective from SentinelMesh (oracle bug, string mismatch, inverse scoring, uncalibrated thresholds, EWMA tie-break, unbounded window regression, spurious quorum conflation, latency escapement).
