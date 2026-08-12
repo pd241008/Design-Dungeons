@@ -173,9 +173,86 @@ Before pushing a commit, run it through this checklist:
 > - Using `git push --force` on shared branches (force-push is acceptable only on feature branches before review).
 > - Writing commit messages in past tense (`fixed`, `added`, `updated`). Use imperative mood (`fix`, `add`, `update`).
 > - Squashing commits in a way that destroys the documented history of a long-running feature.
+> - Opening a PR with 20+ unstaged, uncommitted files and a message that says "WIP" or "initial commit."
+
+---
+
+## 6️⃣ Collaboration & Conflict Resolution
+
+_Reference Repos: SentinalMesh, Milan, Omega_
+
+Git is a collaboration tool, not just a backup system. These rules prevent the "merge hell" that kills velocity on multi-contributor projects.
+
+### Pull Request Discipline
+
+> [!IMPORTANT]
+> A PR must be **small, focused, and reviewable**. If you cannot describe the change in one sentence, split it into multiple PRs.
+
+| Rule | Rationale |
+|------|-----------|
+| **One feature per PR** | Mixing auth refactor with CSS tweaks makes review impossible. |
+| **PR must pass CI before review** | Never ask a human to review code that fails lint, typecheck, or tests. |
+| **Link the issue or ADR** | Use `Closes #42` or `Refs ADR-003` so the PR description traces back to the decision. |
+| **Self-review before requesting review** | Re-read your own diff. Fix typos, remove debug logs, and confirm commit messages follow Conventional Commits. |
+
+### Merge Strategy
+
+> [!NOTE]
+> **Squash and merge is the default for feature branches.** It keeps `main` linear and readable while preserving the commit messages in the PR description.
+
+| Branch Type | Merge Strategy | Rationale |
+|-------------|---------------|-----------|
+| `feature/*` | **Squash and merge** | Keeps `main` linear; feature history lives in the PR. |
+| `fix/*` | **Squash and merge** | Same as above. |
+| `chore/*` | **Merge commit** (no fast-forward) | Dependency bumps often have many small commits; preserve them. |
+| `main` / `develop` | **Merge commit** only | Never squash or rebase shared branches. |
+
+> [!WARNING]
+> **NEVER rebase a shared branch.** If `main` has moved forward since you branched, merge `main` into your feature branch, then squash-merge your feature branch back to `main`. Reversing this order destroys other engineers' commits.
+
+### Resolving Merge Conflicts
+
+When conflicts occur, follow this decision tree:
+
+```text
+Conflict in config/ or infra/?
+  → Ask the owner of that file. Do not guess.
+
+Conflict in generated code (migrations, protobuf)?
+  → Regenerate the artifact on top of the target branch. Do not manually patch.
+
+Conflict in business logic?
+  → The engineer who opened the PR resolves it.
+  → If the conflict spans two features, split the PR.
+```
+
+> [!TIP]
+> **Rebase early, rebase often.** Merge `main` into your feature branch at least once per day. The longer a branch lives, the more painful the conflict resolution becomes.
+
+### Working on Shared Branches
+
+When multiple engineers work on the same long-lived branch (e.g., `develop`):
+
+1. **Pull `develop` before you push.** Run `git pull --rebase origin develop` to keep your commits on top.
+2. **Push atomic commits.** Small, logical commits are easier to cherry-pick or revert.
+3. **Communicate in the PR.** If two PRs touch the same file, comment on both PRs to coordinate.
+4. **Use `git rerere`.** Enable `git config --global rerere.enabled true` to automatically resolve repeated conflicts.
+
+### The "main is always deployable" Rule
+
+> [!IMPORTANT]
+> `main` must pass CI and be deployable at all times. If a feature is half-done, keep it on a feature branch. Do not merge WIP code to `main` "to get it tested."
+
+### Rollback Procedure
+
+When a bad merge reaches `main`:
+
+1. **Revert the merge commit, do not reset.** `git revert -m 1 <merge-commit-hash>` creates a new commit that undoes the merge without rewriting history.
+2. **Tag the bad deployment.** Create a git tag (`bad-deploy-2026-08-12`) so you can reference the exact code that ran.
+3. **Open a postmortem.** Link the postmortem in the revert commit message.
 
 ---
 
 ## 🔄 Revisit When
 
-When adopting a new automation tool (release bots, version bumpers, or changelog generators), revisit this section to confirm the commit parser regex and footer conventions still align with the chosen toolchain.
+When adopting trunk-based development, feature flags, or a different merge tool (e.g., `git-absorb`, `squash-merge` with rebase), revisit this section to confirm the merge strategy and conflict resolution rules still align with the team's workflow.
