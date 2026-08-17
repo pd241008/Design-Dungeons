@@ -16,6 +16,15 @@
 - 🧠 **Added** `00-foundations/philosophy.md` detailing engineering values.
 - 🎉 **Initialized** the playbook.
 
+### August 16, 2026
+
+- ⚡ **Added** `08-async-and-queues/queue-architectures.md` covering conveyor belt ingestion (DevTrace), Celery task queues (DocsSense), cron-triggered serverless workers (Gaming), and event-driven streaming (Sentinel).
+- 🔭 **Added** `09-observability/observability-patterns.md` covering the three pillars (logs, metrics, traces), embedded observability (DevTrace), edge defense (Gaming), infrastructure monitoring (Sentinel), and alerting philosophy.
+- 🚀 **Added** `12-deployment/deployment-patterns.md` covering multi-cloud serverless (Gaming), polyglot container mesh (Sentinel), embedded deployment (DevTrace), configuration management, health checks, and rollback strategy.
+- 🧪 **Added** `10-testing/testing-architecture.md` covering three-layer test strategy, 100% mocked infrastructure, async task testing, frontend testing stack (Vitest, RTL, Playwright, MSW), test organization, and execution commands.
+- 🧬 **Added** `13-ml-and-research/research-patterns.md` covering reproducibility discipline (ChaosSeal), experiment tracking, prototype vs. production separation (Midas), RAG pipeline architecture (DocsSense), adversarial ML patterns (Midas), and LSH/vector search (PrimeVector).
+- 🏗️ **Added** `04-reference-code/03-strangler-fig-migration.md` documenting the progressive monolith-to-mesh migration pattern proven in Sentinel's Python → Go/Scala migration.
+
 ### August 12, 2026
 
 - ⚙️ **Added** `05-git-and-versioning/` covering Conventional Commits, branch naming, commit body/footers, linking commits to documentation, decision framework, anti-patterns, and collaboration guidelines (merge strategies, conflict resolution, rollback procedures).

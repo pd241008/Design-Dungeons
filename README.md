@@ -26,13 +26,13 @@ This is not a generic list of "best practices." If a pattern or architecture cho
 | **[04. Reference Code](./04-reference-code/)** | Actual code snippets proving the architecture in production.       |
 | **[05. Git & Versioning](./05-git-and-versioning/05-git-and-versioning.md)** | Commit formats, PR templates, branch strategies, and collaboration. |
 | **[06. Environments](./06-environments/environment-standards.md)** | `.env` standards, secret management, and environment promotion. |
+| **[08. Async & Queues](./08-async-and-queues/queue-architectures.md)** | Task idempotency, retries, and queue architectures. |
+| **[09. Observability](./09-observability/observability-patterns.md)** | Metrics baselines, logging shapes, and alerting. |
+| **[10. Testing](./10-testing/testing-architecture.md)** | What to test, async job testing, and full-stack test suites. |
+| **[12. Deployment](./12-deployment/deployment-patterns.md)** | PM2, containers, and GitHub actions. |
+| **[13. ML & Research](./13-ml-and-research/research-patterns.md)** | Experiment tracking and reproducible repos. |
 | _07. Database_                               | (Coming soon) Migration discipline, indexing, and schema changes.  |
-| _08. Async & Queues_                         | (Coming soon) Task idempotency, retries, and queue architectures.  |
-| _09. Observability_                          | (Coming soon) Metrics baselines, logging shapes, and alerting.     |
-| _10. Testing_                                | (Coming soon) What to test, async job testing, and ML pipelines.   |
 | _11. Performance_                            | (Coming soon) Profiling, caching, and concurrency.                 |
-| _12. Deployment_                             | (Coming soon) PM2, containers, and GitHub actions.                 |
-| _13. ML & Research_                          | (Coming soon) Experiment tracking and reproducible repos.          |
 | _14. Code Review_                            | (Coming soon) Checklists and what _not_ to block on.               |
 
 ---
