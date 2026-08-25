@@ -25,3 +25,12 @@ _[What is the situation? What problem are we solving? What are the constraints (
 ## 🧠 Reasoning
 
 _[The actual tradeoff. Why did the chosen option win out over the others? Document the real operational or business factors, not just "it's better tech."]_
+
+## ⚖️ Consequences
+
+- **Good:** 🟢 [What improves]
+- **Bad:** 🔴 [What gets harder or what tradeoffs we accept]
+
+## 🔄 Revisit When
+
+_[Under what conditions should this decision be reconsidered? e.g., "When traffic exceeds X," "When the team grows past Y," etc.]_
