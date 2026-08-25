@@ -21,7 +21,9 @@ This is not a generic list of "best practices." If a pattern or architecture cho
 | -------------------------------------------- | ------------------------------------------------------------------ |
 | **[00. Foundations](./00-foundations/)**     | Core philosophy and engineering standards.                         |
 | **[01. Documentation](./01-documentation/)** | README patterns and Architecture Decision Records (ADRs).          |
+| ├─ [ADRs](./01-documentation/adrs/) | `adr-template.md` · `omnistat/` (1) `devtrace/` (1) `milan/` (1) `blackice/` (4) `helios/` (5) `pissta/` (8) `orbitlite/` (3) `ai-agent/` (1) — **24 total** |
 | **[02. Postmortems](./02-postmortems/)**     | Failure stories, mistakes, and what we learned.                    |
+| ├─ [Postmortems](./02-postmortems/) | `omnistat/` (1) `blackice/` (3) `helios/` (3) `pissta/` (8) `orbitlite/` (1) `sentinalmesh/` (2) — **18 total** |
 | **[03. Project Structure](./03-project-structure/canonical-layouts.md)** | Canonical folder layouts for full-stack, systems, and ML repos. |
 | **[04. Reference Code](./04-reference-code/)** | Actual code snippets proving the architecture in production.       |
 | **[05. Git & Versioning](./05-git-and-versioning/05-git-and-versioning.md)** | Commit formats, PR templates, branch strategies, and collaboration. |

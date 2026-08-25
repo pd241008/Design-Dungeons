@@ -25,6 +25,14 @@
 - 🧬 **Added** `13-ml-and-research/research-patterns.md` covering reproducibility discipline (ChaosSeal), experiment tracking, prototype vs. production separation (Midas), RAG pipeline architecture (DocsSense), adversarial ML patterns (Midas), and LSH/vector search (PrimeVector).
 - 🏗️ **Added** `04-reference-code/03-strangler-fig-migration.md` documenting the progressive monolith-to-mesh migration pattern proven in Sentinel's Python → Go/Scala migration.
 
+### August 25, 2026
+
+- 📦 **Consolidated** 21 ADRs and 15 postmortems from all local projects into project-scoped subdirectories (`blackice/`, `helios/`, `pissta/`, `orbitlite/`, `ai-agent/`, `sentinalmesh/`).
+- 🔢 **Total inventory:** 24 ADRs, 17 postmortems across 6 projects.
+- 🧹 **Fixed** placeholder dates (`[Month, Year]`) in `001-why-we-removed-redis.md` and `002-sentinalmesh-simulator-bugs.md`.
+- 📝 **Extended** `adr-template.md` with missing `Consequences` and `Revisit When` sections to match actual ADR structure.
+- 📖 **Updated** README with project subdirectory navigation.
+
 ### August 12, 2026
 
 - ⚙️ **Added** `05-git-and-versioning/` covering Conventional Commits, branch naming, commit body/footers, linking commits to documentation, decision framework, anti-patterns, and collaboration guidelines (merge strategies, conflict resolution, rollback procedures).
