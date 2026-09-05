@@ -1,6 +1,6 @@
 # Postmortem: Why We Removed Redis
 
-> **Date:** [Month, Year]  
+> **Date:** June 2026
 > **Project:** OmniStat-Core
 
 ---
@@ -35,4 +35,4 @@ We learned that:
 - **Infrastructure is a liability:** Every new piece of infrastructure must justify its existence. If the problem can be solved by an in-memory state or a simpler database write, choose the simpler option.
 - We established a new rule: This decision to re-introduce a caching layer will only reverse at roughly ~50k events/day (a limit observed during local load tests), when database load becomes a statistically significant concern.
 
-_See the corresponding ADR: [ADR-001: Removing Redis from the Core Ingestion Path](../01-documentation/adrs/001-omnistat-no-redis.md)_
+_See the corresponding ADR: [ADR-001: Removing Redis from the Core Ingestion Path](../../01-documentation/adrs/omnistat/001-omnistat-no-redis.md)_

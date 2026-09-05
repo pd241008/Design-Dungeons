@@ -1,6 +1,6 @@
 # 🕵️ SentinelMesh Simulator: Bug Post-Mortem
 
-> **Date:** [Month, Year]  
+> **Date:** August 2026
 > **Project:** SentinelMesh (Simulator Metrics Pipeline)
 
 ---
