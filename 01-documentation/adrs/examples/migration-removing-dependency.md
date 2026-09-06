@@ -1,5 +1,9 @@
 # 📜 ADR-001: Dropping Redis from OmniStat-Core
 
+> **Model example:** Removing an infrastructure dependency the system didn't need.
+> Demonstrates the **dependency-removal / simplify-then-verify** pattern.
+> Design_Doc-original (no source file in OmniStat — decision logged here).
+
 > **Status:** `Decided`
 > **Date:** `June, 2026`
 
