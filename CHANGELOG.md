@@ -16,7 +16,7 @@
 - 🎁 **Added** three ML research focus docs under `13-ml-and-research/`:
   [`artifact-design.md`](13-ml-and-research/artifact-design.md) (reviewer-centric
   reproducibility artifact design — claim maps, typed R1–R4, review paths),
-  [`negative-results.md`](13-ml-and-research/negative-results.md) (TASCP negative-result
+  [`negative-results.md`](13-ml-and-research/negative-results.md) (negative-result
   autopsy), and [`ffi-validation.md`](13-ml-and-research/ffi-validation.md) (Midas
   cross-language FFI validation).
 - 🗄️ **Added** `07-database/data-patterns.md` (fills the previously-empty 07. Database
