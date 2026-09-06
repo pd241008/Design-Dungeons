@@ -1,6 +1,6 @@
 # 🔭 Observability
 
-> **Source Projects:** DevTrace (observability engine), Gaming (edge threat model), Sentinel (Grafana/Prometheus), SentinalMesh (metrics pipeline)
+> **Source Projects:** DevTrace (observability engine), Gaming (edge threat model), Sentinel (Grafana/Prometheus), SentinalMesh (metrics pipeline), Aegis (high-fidelity edge telemetry)
 >
 > Observability is not just logging. It is the ability to understand the internal state of a system from its external outputs — logs, metrics, and traces.
 
@@ -148,6 +148,49 @@ export async function POST(request: Request) {
 
 ---
 
+### Pattern D: High-Fidelity Edge Telemetry (Aegis)
+
+> [!IMPORTANT]
+> **Passive monitoring has a "context gap":** it tells you *that* a service is
+> failing, but not *why* — high-fidelity data is discarded to save bandwidth.
+> Aegis keeps a rolling 60-second "black box" of every syscall, packet, and
+> stack trace at the edge, and only transmits it on anomaly/request. This is
+> the difference between *passive monitoring* and *reactive, high-fidelity
+> tracing*.
+
+#### The Architecture Split
+
+| Layer | Component | Responsibility |
+| :--- | :--- | :--- |
+| **Edge** | Go Sentinel Agent | eBPF/syscall scraper, 60s in-memory ring buffer, threshold triggers, gRPC client with circuit breaking |
+| **Core** | Scala/Akka Cluster ("the Brain") | Thousands of concurrent gRPC streams, global agent-health state map, sliding-window correlation, async TSDB persistence |
+
+#### The Ring-Buffer "Black Box"
+
+> [!TIP]
+> Store raw telemetry in a **bounding ring buffer**; ship it only when an
+> anomaly fires or an operator asks. You get post-hoc diagnosis without
+> shipping every event for the life of the system.
+
+The best part: when an anomaly is detected, the *full 60s of context leading
+up to it* is already in the ring buffer — no manual log digging.
+
+#### Zero-Drop Communication Contract
+
+- **gRPC + Protobuf (proto3):** binary serialization for high-volume syscall/
+  packet streams, strict schema agreement between the Go agent and the Scala
+  cluster (ScalaPB codegen keeps both sides DRY).
+- **Managed streaming with circuit breaking** on the edge client — the flusher
+  backs off rather than dropping the anomaly window under pressure.
+
+> [!NOTE]
+> Aegis's "keep everything, flush on demand" is the inverse of the classic
+> "sample and discard to save bandwidth" tradeoff. The ring buffer bounds memory
+> while the event-driven flush keeps the expensive part (transmission +
+> storage) proportional to *anomalies*, not *traffic*.
+
+---
+
 ## 3️⃣ Alerting Philosophy
 
 ### The Four Golden Signals
@@ -226,3 +269,4 @@ Google's SRE book defines four signals that matter for all services:
 | **Gaming** | Edge Defense | Upstash rate limiting, QStash webhook verification, defense-in-depth |
 | **Sentinel** | Infrastructure Monitoring | Grafana/Prometheus dashboards, ClickHouse log sink, WebSocket alerts |
 | **SentinalMesh** | Metrics Pipeline | EWMA z-score scoring, matched counterfactual control, simulation metrics |
+| **Aegis** | High-Fidelity Edge Telemetry | 60s ring-buffer black box, gRPC/Protobuf contract, backpressure/zero-drop flush |
