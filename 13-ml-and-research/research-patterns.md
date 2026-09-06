@@ -47,6 +47,40 @@ paper: results/*.json
 | **JSON artifacts** | Every simulation writes exact same fields |
 | **No floats in hot path** | ChaosSeal uses Q32.32 fixed-point arithmetic |
 
+### The Independent Verification Gate (Claim-Level)
+
+> [!IMPORTANT]
+> **A headline number derived from a simulator is not a measurement until a
+> second, independent implementation reproduces the model's *bounds* — not just
+> its output.**
+
+After a cross-check exposed that the pendulum's elastic coupling was unbounded
+(energy escape ~18-127 s) and the fixed-point "long-horizon attractor" was a
+±2^31 saturation artifact, ChaosSeal adopted a claim-level gate:
+
+1. **Verify the model, then the rate.** Run an independent, first-principles
+   script (`verify_metastability.py`) that checks bounds across multiple
+   integrators (RK4 dt=1e-2/2e-3, symplectic Verlet, DOP853) *before* any
+   Lyapunov/KS rate is committed.
+2. **The float64 replicator is the referee.** Every Rust Q32.32 exponent is
+   gated against an exactly-replicated float64 Benettin
+   (`validate_benettin.py`, non-unit-inertia configs included so the Jacobian
+   split is actually exercised).
+3. **Tag finite windows honestly.** T=100 s data from an unbounded model is a
+   *transient* statistic, permanently labeled as such, never extrapolated to
+   the protocol epoch.
+4. **Kill the headline, then redesign.** The 256-bit/epoch claim was reframed
+   to a conditioner, the coupling was made bounded by construction (wrapped
+   `atan2` spring, default c=1.0), and the claim was re-earned with measured
+   KS ≈ 1.0-1.3 nats/s → 256-bit dt ≈ 136-176 s — still verifier-gated.
+
+> [!WARNING]
+> **Fixed-point ceilings lie in both directions.** Q32.32 guarantees
+> determinism, not physical boundedness: a saturating i64 ceiling produces a
+> bounded-looking trajectory whose converged spectrum is the exponent of the
+> *saturated* system. Any long-horizon claim must first bound the
+> discretization floor.
+
 > [!WARNING]
 > **Do not commit generated figures or data to version control.** Commit the scripts and seeds, then generate artifacts in CI. This prevents accidental "result drift" where old figures no longer match the code.
 
