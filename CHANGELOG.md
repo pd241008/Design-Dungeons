@@ -4,6 +4,21 @@
 
 ---
 
+### September 6, 2026
+
+- 📝 **Added** `chaosseal/` ADRs (4): Benettin tangent update fix, Jacobian
+  inertia placement, 256-bit/epoch claim reframe on metastability, and the
+  bounded wrapped-coupling redesign (`01-documentation/adrs/chaosseal/`).
+- 🧠 **Added** `chaosseal/` postmortem: the metastable pendulum + fixed-point
+  saturation "phantom attractor" (`02-postmortems/chaosseal/`).
+- 🔢 **Total inventory:** 28 ADRs, 19 postmortems across 7 projects.
+- 🧬 **Extended** `13-ml-and-research/research-patterns.md` §1 (ChaosSeal) with
+  the independent cross-simulator verification gate.
+- 🧭 **Updated** `blackice/001-canonical-exhaustive-mixed-norm-evaluation`: ADR
+  condensed to its canonical decision form (pros/cons preserved); the detailed
+  Section-III reproduction + scaling evidence is retained in
+  `03-audit-reports/004` within the BlackIce project repo.
+
 ### June 18, 2026
 
 - ✨ **Added** `00-foundations/engineering-standards.md` translated from the legacy Design Doc PDF.

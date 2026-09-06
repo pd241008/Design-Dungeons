@@ -1,30 +1,60 @@
-# 📜 ADR-001: Canonical Exhaustive Mixed-Norm Evaluation
+# ADR-001: Canonical Exhaustive Mixed-Norm Evaluation
 
-> **Status:** `Decided`
-> **Date:** August, 2026
+## Status
 
----
+Accepted
 
-## 🌎 Context
+## Context
 
-Tabular network intrusion detection models process both continuous and categorical features. Adversarial evaluation requires a mixed-norm threat model ($L_\infty$ for continuous, $L_0$ for categorical). Early attempts to evaluate mixed-norm robustness relied on gradient masking (DACM hard-snapping during the forward pass) or greedy heuristics (Top-K projection during PGD optimization). 
+The original AdvGuard evaluation used a one-shot gradient-snapped attack:
+run continuous PGD, then snap categorical features to argmax once at the
+end. This approach has two failure modes:
 
-These heuristic approaches introduced massive evaluation artifacts:
-1. **Fractional Epsilon Leakage:** Passing continuous gradients directly into categorical one-hot fields resulted in invalid states (e.g., fractional network flags like `[0.85, 0.15]`), violating the threat model.
-2. **Greedy Optimization Oscillation:** When attacking $K>0$ categorical groups, a greedy projection heuristic forced the categorical selection to flip away from the original state at every step. This caused the optimization to violently oscillate between classes (e.g., thrashing between network flags), completely destabilizing continuous PGD and artificially inflating robust accuracy.
+1. **Locally optimal categorical flips**: The argmax selects a categorical
+   state that is locally optimal for the current continuous perturbation but
+   may not be the worst-case state overall.
+2. **Invalid intermediate states**: During continuous optimization, the
+   categorical features may take invalid values (non-one-hot), which can
+   produce misleading gradients.
 
-## 🛤️ Options Considered
+The original AdvGuard paper reported 29.10% robust accuracy for the hardened
+NSL-KDD model. This figure was later retracted.
 
-1. **Continue using Greedy Top-K Projection** - Computationally cheap, but fundamentally flawed due to optimization oscillation.
-2. **Exhaustive Discrete Evaluation** - Iterate over all valid discrete combinations of $K$ categorical flips, hold the discrete state fixed, and run continuous $L_\infty$ PGD on each state. Select the worst-case loss.
+## Decision
 
----
+Replace one-shot gradient-snapped evaluation with **exhaustive enumeration**
+of valid categorical states.
 
-## 🎯 Decision
+For categorical budget $K=1$:
+- Evaluate K=0 (continuous-only attack)
+- Evaluate every categorical group $G$ individually: flip all features in $G$
+  to every valid one-hot state, run continuous PGD-40, pick worst outcome
+- A sample survives K=1 only if it survives K=0 AND all group evaluations
 
-> [!IMPORTANT]  
-> **We will use Exhaustive Discrete Evaluation because the categorical state space is small enough (e.g., 14 valid states for NSL-KDD at $K=1$) to make brute-force search tractable and mathematically rigorous.**
+For $K=2$, enumerate all pairs of groups.
 
-## 🧠 Reasoning
+## Consequences
 
-By decoupling the discrete categorical attack from the continuous gradient optimization, we guarantee that the mixed-norm budget is perfectly respected and oscillation is impossible. The true worst-case vulnerability is always found. While it requires running PGD multiple times per sample (once for each valid discrete combination), the absolute size of the tabular threat space is small enough that the compute cost is acceptable for the guarantee of correctness.
+### Positive
+- Eliminates invalid-state artifacts
+- Guarantees coverage of the discrete state space within budget $K$
+- Produces deterministic discrete-state coverage for a fixed attack initialization; stochastic continuous optimization remains subject to random-start variance
+- Faithful reproduction yields 40.36% robust accuracy (vs. 29.10%)
+
+### Negative
+- Runtime scales combinatorially with $K$ and number of categorical groups
+- For UNSW-NB15 with 5 categorical groups, K=2 requires 667 states per sample
+- Memory bandwidth becomes the bottleneck; GPU parallelism is essential for
+  large datasets
+
+### Neutral
+- Continuous inner optimization remains PGD-based and does not provide a
+  global certificate
+- Random-start PGD introduces run-to-run variance; tolerances are
+  pre-registered in `verification/compare_exh_fresh.py`
+
+## Superseded Implementation
+
+The legacy one-shot evaluator is preserved in `canonical/eval_unified.py`
+and `diagnostics/train_pgd_robust.py` for provenance. It should not be used
+for canonical claims.
