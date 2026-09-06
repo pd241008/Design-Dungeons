@@ -6,6 +6,33 @@
 
 ### September 6, 2026
 
+- 📚 **Refactored** `01-documentation/adrs/` from a bulk project dump (28 files) into a
+  **template + curated examples + catalog** model: one canonical template,
+  [`adr-template.md`](01-documentation/adr-template.md), six curated example ADRs in
+  `01-documentation/adrs/examples/`, and a
+  [`catalog`](01-documentation/adrs/README.md) routing every decision to its canonical
+  home in the source project repo (BlackIce 4, ChaosSeal 4, Helios 5, Pissta 9,
+  OrbitLite 3, AI-Agent 1, DevTrace 1, Milan 1, OmniStat 1).
+- 🎁 **Added** three ML research focus docs under `13-ml-and-research/`:
+  [`artifact-design.md`](13-ml-and-research/artifact-design.md) (reviewer-centric
+  reproducibility artifact design — claim maps, typed R1–R4, review paths),
+  [`negative-results.md`](13-ml-and-research/negative-results.md) (negative-result
+  autopsy), and [`ffi-validation.md`](13-ml-and-research/ffi-validation.md) (Midas
+  cross-language FFI validation).
+- 🗄️ **Added** `07-database/data-patterns.md` (fills the previously-empty 07. Database
+  slot): event sourcing & CQRS, Raft consensus, Kafka event choreography + saga
+  orchestrator, and streaming-variance fraud detection — sourced from Omega.
+- 🔭 **Extended** `09-observability/observability-patterns.md` with **Pattern D:
+  High-Fidelity Edge Telemetry (Aegis)** — ring-buffer "black box" edge agents,
+  gRPC/Protobuf communication contract, and backpressure/zero-drop flush.
+- 🏗️ **Extended** `03-project-structure/canonical-layouts.md` with **§4 The
+  Meta-Scanner (Tracker)** — automated artifact classification by extension
+  convention as the bridge between canonical layouts and auto-generated catalogs.
+
+---
+
+### September 6, 2026
+
 - 📝 **Added** `chaosseal/` ADRs (4): Benettin tangent update fix, Jacobian
   inertia placement, 256-bit/epoch claim reframe on metastability, and the
   bounded wrapped-coupling redesign (`01-documentation/adrs/chaosseal/`).

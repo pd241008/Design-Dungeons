@@ -4,6 +4,12 @@
 >
 > Research code is inherently messy. The goal is to isolate the chaos from stable production layers while maintaining reproducibility, experiment tracking, and clear separation between prototype and production.
 
+> [!TIP]
+> **Focus docs in this section:**
+> - [`artifact-design.md`](./artifact-design.md) — reviewer-centric reproducibility artifact design (claim maps, typed R1–R4 reproducibility, review paths)
+> - [`negative-results.md`](./negative-results.md) — how to run and report an honest negative-result autopsy
+> - [`ffi-validation.md`](./ffi-validation.md) — cross-language FFI validation for prototype→production model ports (Midas)
+
 ---
 
 ## 1️⃣ Reproducibility Discipline (ChaosSeal)

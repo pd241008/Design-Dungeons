@@ -1,5 +1,10 @@
 # ADR 005: Per-City Temporal Split Policy
 
+> **Model example:** How to correct a stale evaluation split without breaking
+> existing callers, while recording split provenance as an artifact.
+> Demonstrates the **evaluation-integrity / data-provenance** decision pattern.
+> Source: Helios.
+
 ## Status
 Accepted (2026-08-21)
 

@@ -1,5 +1,9 @@
 # ADR 003: Reframe the 256-bit/epoch Entropy Claim — Pendulum Becomes a Transient Chaotic Conditioner
 
+> **Model example:** How to reframe an over-claimed headline result once the
+> model behind it is discovered to be non-integrable. Demonstrates the
+> **honesty + verify-before-trust** decision pattern. Source: ChaosSeal.
+
 ## Status
 Accepted (2026-09-02)
 

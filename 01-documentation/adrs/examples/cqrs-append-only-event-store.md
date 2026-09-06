@@ -1,5 +1,9 @@
 # 📜 ADR-002: CQRS & Append-Only Event Store for DevTrace
 
+> **Model example:** Splitting the write (capture) path from the read (analytics)
+> path. Demonstrates the **CQRS + append-only event store** decision pattern.
+> Design_Doc-original (no source file in DevTrace — decision logged here).
+
 > **Status:** `Decided`
 > **Date:** `March, 2026`
 

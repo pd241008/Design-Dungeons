@@ -1,5 +1,9 @@
 # 📜 ADR-003: Dual Auth (Google OAuth + OTP) for Milan
 
+> **Model example:** Layering a social login with a fallback OTP path.
+> Demonstrates the **authentication / delegated-authority** decision pattern.
+> Design_Doc-original (no source file in Milan — decision logged here).
+
 > **Status:** `Decided`
 > **Date:** `March, 2026`
 

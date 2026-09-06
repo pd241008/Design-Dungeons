@@ -1,5 +1,10 @@
 # ADR-001: Canonical Exhaustive Mixed-Norm Evaluation
 
+> **Model example:** How to replace a flawed evaluation methodology with a
+> canonical one and preserve the superseded implementation for provenance.
+> Demonstrates the **methodology-replacement + canonical-vs-legacy** pattern.
+> Source: BlackIce.
+
 ## Status
 
 Accepted
