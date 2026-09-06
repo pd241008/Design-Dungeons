@@ -19,6 +19,9 @@
   [`negative-results.md`](13-ml-and-research/negative-results.md) (TASCP negative-result
   autopsy), and [`ffi-validation.md`](13-ml-and-research/ffi-validation.md) (Midas
   cross-language FFI validation).
+- 🗄️ **Added** `07-database/data-patterns.md` (fills the previously-empty 07. Database
+  slot): event sourcing & CQRS, Raft consensus, Kafka event choreography + saga
+  orchestrator, and streaming-variance fraud detection — sourced from Omega.
 
 ---
 
