@@ -14,6 +14,10 @@
 - 🔢 **Total inventory:** 28 ADRs, 19 postmortems across 7 projects.
 - 🧬 **Extended** `13-ml-and-research/research-patterns.md` §1 (ChaosSeal) with
   the independent cross-simulator verification gate.
+- 🧭 **Updated** `blackice/001-canonical-exhaustive-mixed-norm-evaluation`: ADR
+  condensed to its canonical decision form (pros/cons preserved); the detailed
+  Section-III reproduction + scaling evidence is retained in
+  `03-audit-reports/004` within the BlackIce project repo.
 
 ### June 18, 2026
 
