@@ -1,9 +1,8 @@
 # 🎁 Reproducibility Artifact Design
 
-> **Source:** Research-submission artifact (adversarial ML, mixed-norm
-> intrusion-detection robustness) + its companion position paper,
-> *"The Artifact as Interface: Toward a Reviewer-Centric Approach to Scientific
-> Artifact Design."*
+> A design philosophy for packaging research artifacts so a time-constrained,
+> skeptical reviewer can verify a paper's claims without reverse-engineering
+> the repository.
 
 > [!IMPORTANT]
 > **A research artifact is an interface between a scientific claim and its
@@ -48,10 +47,12 @@ reading it as a defect.
 
 > [!WARNING]
 > **For anything R3, state the tolerance in advance — before validation — and
-> give it a name.** In the case-study artifact, the EXH K=1 sweeps got
-> `k0/k1_survivors ±0.75% relative` and `k1_pct ±0.5 pp absolute`, pre-registered
-> in the comparator script. Pre-registering tolerances converts a fuzzy "close
-> enough" into a pass/fail check.
+> give it a name.** If a result depends on randomized optimization (e.g., rating
+> a defense against random-restart attacks), pre-register the acceptance window
+> in the comparator script (`survivors ±0.75% relative`, `pass-rate ±0.5 pp`).
+> Pre-registering tolerances converts a fuzzy "close enough" into a pass/fail
+> check and forces you to admit, in writing, which numbers cannot be exactly
+> reproduced *by design* rather than by oversight.
 
 ---
 
@@ -65,17 +66,14 @@ downstream claim can trace back to the observation that motivated it.
 ```markdown
 | ID | Paper Claim | Manifest | Evidence | Script | Output |
 |----|-------------|----------|----------|--------|--------|
-| C1 | Legacy one-shot evaluation is unreliable | E-C1-...json | Faithful run gives 16% / 40% vs retracted 29% | canonical/section3_faithful_diagnostic.py | results/section3/...json |
-| C3 | Canonical exhaustive K=1 is accurate | E-C3-...json | Multi-seed EXH K=1 sweeps, 3 datasets | canonical/eval_deepfool_k1.py | results/foolbox/exh_k1_*.json |
+| C1 | Baseline protocol under-reports robustness | E-C1-...json | Faithful rerun reproduces the gap | scripts/diagnostic.py | results/...json |
+| C2 | Cumulative metric is accurate across seeds | E-C2-...json | Multi-seed sweeps, 2 benchmarks | scripts/eval.py | results/*.json |
 ```
 
 ```
 C1 (faithful diagnostic)
-    └── motivates C2 (exhaustive enumeration)
-        └── enables C3 (accurate measurement)
-            ├── validated by C4 (JSMA divergence)
-            ├── validated by C6 (independent attacks)
-            └── scaled by C8 (tractability)
+    └── motivates C2 (cumulative metric)
+        └── validated by C3 (independent attack impl.)
 ```
 
 ---
@@ -88,7 +86,7 @@ diagnostics/    # Superseded / exploratory code kept for provenance
 docs/adr/       # Lightweight ADRs recording the rationale for the split
 ```
 
-Keep the historical analyzer (e.g. `eval_unified.py`) under `diagnostics/` so a
+Keep the historical analyzer (e.g. `evaluation_v1.py`) under `diagnostics/` so a
 reviewer never has to guess which evaluator is authoritative. Document the
 separation as a short ADR sequence.
 
@@ -103,7 +101,7 @@ A top-level set of small markdown files, each with one job:
 | `REVIEWER_GUIDE.md` | "If you're reviewing X, start here" quick-navigation table + explicit review paths (15-min / 30-min / 2-hr / provenance) |
 | `CLAIM_MAP.md` | P1: claim → evidence navigation |
 | `REVIEW_CHECKLIST.md` | Bounded verification checklist, one subsection per claim |
-| `VERIFY.md` | P2: fast verification without full reproduction (`make smoke`, ~2 min) |
+| `VERIFY.md` | P2: fast verification without full reproduction (`make verify`, ~2 min) |
 | `REPRODUCE.md` | P2: full reproduction instructions |
 | `REPRODUCIBILITY_LEVELS.md` | P4: the R1–R4 classification |
 | `LIMITATIONS.md` | P5: boundaries discoverable up front |
@@ -111,7 +109,7 @@ A top-level set of small markdown files, each with one job:
 
 > [!TIP]
 > Ship a `Makefile` with named targets (`make verify`, `make smoke`,
-> `make reproduce-table3`). Fresh outputs go to `*.fresh.*` / `results_fresh/`
+> `make reproduce-table2`). Fresh outputs go to `*.fresh.*` / `results_fresh/`
 > paths and never overwrite the archive; `make clean` removes them. This keeps
 > shipped results authoritative while still proving they regenerate.
 
@@ -120,11 +118,12 @@ A top-level set of small markdown files, each with one job:
 ## What Not to Over-Document
 
 > [!WARNING]
-> **Be candid about what you don't know.** The case-study authors admit there is
-> no evidence yet that this scaffolding helps, and that a reviewer might open the
-> claim map once and never return. For a paper with 2–3 simple claims, this suite
-> is overkill — a Docker image + README is the more honest artifact. Match the
-> documentation to the number and difficulty of the claims.
+> **Be candid about what you don't know — and don't over-engineer.** The
+> scaffolding above restates the author's honest admission that there is no
+> evidence yet that it helps, and that a reviewer might open the claim map once
+> and never return. For a paper with 2–3 simple claims, this suite is overkill —
+> a Docker image + README is the more honest artifact. Match the documentation to
+> the number and difficulty of the claims.
 
 ---
 

@@ -1,6 +1,6 @@
 # 🧬 ML & Research
 
-> **Source Projects:** ChaosSeal (reproducibility discipline), PrimeVector (LSH research), DocsSense (RAG pipeline), Midas (adversarial ML), Artifact A / TASCP (reproducibility artifact & negative-result design)
+> **Source Projects:** ChaosSeal (reproducibility discipline), PrimeVector (LSH research), DocsSense (RAG pipeline), Midas (adversarial ML), TASCP (negative-result design)
 >
 > Research code is inherently messy. The goal is to isolate the chaos from stable production layers while maintaining reproducibility, experiment tracking, and clear separation between prototype and production.
 
