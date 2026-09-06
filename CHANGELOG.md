@@ -22,6 +22,12 @@
 - 🗄️ **Added** `07-database/data-patterns.md` (fills the previously-empty 07. Database
   slot): event sourcing & CQRS, Raft consensus, Kafka event choreography + saga
   orchestrator, and streaming-variance fraud detection — sourced from Omega.
+- 🔭 **Extended** `09-observability/observability-patterns.md` with **Pattern D:
+  High-Fidelity Edge Telemetry (Aegis)** — ring-buffer "black box" edge agents,
+  gRPC/Protobuf communication contract, and backpressure/zero-drop flush.
+- 🏗️ **Extended** `03-project-structure/canonical-layouts.md` with **§4 The
+  Meta-Scanner (Tracker)** — automated artifact classification by extension
+  convention as the bridge between canonical layouts and auto-generated catalogs.
 
 ---
 
