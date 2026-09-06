@@ -145,3 +145,54 @@ project-root/
 
 > [!TIP]
 > **Why?** Research code changes rapidly. By strictly isolating `notebooks/` and `datasets/` from the `backend/` inference API, you can prototype fearlessly without breaking the application's contract with the frontend.
+
+---
+
+## 4️⃣ The Meta-Scanner: Automated Artifact Classification (Tracker)
+
+> **Source repo:** Tracker — a Rust/Scala service that walks this exact Legacy
+> monorepo, classifies each project, and auto-generates README sections.
+
+When you manage many repos, don't trust humans to keep the catalog consistent —
+**scan the tree and classify by convention.**
+
+```
+┌───────────────────────────────────────────────────────────┐
+│ Scala Poller (every N sec)                                 │
+│   → GET /api/scan/latest  → markdown → POST /readme/generate
+└──────────────────────────┬──────────────────────────────────┘
+                           ▼ HTTP
+┌───────────────────────────────────────────────────────────┐
+│ Rust HTTP Server                                          │
+│  Scanner  → walk tree, skip build artifacts               │
+│  Classify → language / build tool / tests / Docker / CI   │
+│  Artifacts→ datasets (*.csv, *.parquet) & models (*.pkl,  │
+│             *.pt, *.onnx) by extension + filename         │
+│  Persist  → SQLite (indexed on project path)              │
+│  API      → /api/scan /projects /datasets /models /stats  │
+└────────────────────────────┬───────────────────────────────┘
+                             ▼
+                    Projects Root (Legacy/)
+```
+
+### The Classification Rule
+
+> [!TIP]
+> Classify artifacts by **extension + filename convention** (`*.pt`, `*.onnx`
+> → model; `*.csv`/`*.parquet` → dataset), then store an indexed catalog. New
+> artifact types are a single classifier extension in `scanner.rs`, not a schema
+> migration.
+
+### Why It Matters Here
+
+- **Canonical layouts make scanning possible.** The harder rule of "datasets live
+  in `datasets/`, models in `models/`, tools at root" is what lets a dumb
+  extension classifier produce accurate metadata.
+- **Thread-safety note:** the SQLite connection is wrapped in a `Mutex`; scan
+  results cached in `Arc<AppState>`; later hydration into a real DB is an
+  extension point, not a rewrite.
+
+> [!NOTE]
+> This is the meta-pattern: the playbook's own `README.md` project inventories
+> (e.g. "Pissta (9) ADRs") are exactly what Tracker automates — classify by
+> convention, derive the catalog, don't hand-maintain it.
